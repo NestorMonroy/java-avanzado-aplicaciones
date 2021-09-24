@@ -1,3 +1,57 @@
+### Maven
+
+Install Apache Maven on Ubuntu 20.04
+
+sudo apt update
+sudo apt install maven
+
+mvn -version
+
+Creating a Project
+
+
+mvn archetype:generate -DgroupId=com.nestor.app -DartifactId=example-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+
+#### compile the project and generate target folder
+
+mvn compile
+
+### generar .jar , deploy
+
+.war , artifecto web
+
+mvn package
+
+## Guarda una version del proyecto (Compilar y empaquetar)
+mvn install
+
+
+## Limpiar memoria cache -> Remueve la carpeta target
+
+mvn clean
+
+### Limpiar, compilar y empaquetar
+
+mvn clean install
+
+
+### No generar pruebas
+
+mvn clean install -Dmaven.test.skip=true
+
+### Archivo de configuracion
+
+pom.xml
+
+### Dependencias con Maven
+
+https://mvnrepository.com
+
+Todas son alojadas localmente en
+
+cd  /home/nestor/.m2/repository
+
 
 #### JSF  (Patron de diseno)
 Framework basado en MVC
