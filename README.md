@@ -74,3 +74,11 @@ El controlador se encargada de comunicar las propiedades y metodos con la pantal
 
 
 
+
+### How to link Tomcat server config in Intellij IDEA?
+
+/usr/share/tomcat9 in Tomcat_Home.
+/var/lib/tomcat9 in Tomcat base directory.
+
+
+https://blog.csdn.net/pan_junbiao/article/details/89639004
