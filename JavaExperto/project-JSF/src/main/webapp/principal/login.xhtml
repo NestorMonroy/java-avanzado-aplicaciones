@@ -2,21 +2,21 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
 >
-    <h:head>
-        <title>NestorMonroy | Login</title>
-    </h:head>
-    <h:body>
-        <h:form id="formLogin">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Usuario: "></h:outputLabel>
-                <h:inputText></h:inputText>
+<h:head>
+    <title>NestorMonroy | Login</title>
+</h:head>
+<h:body>
+    <h:form id="formLogin">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Usuario: "></h:outputLabel>
+            <h:inputText id="txtUsuario"  value="#{loginController.usuario}" required="true" requiredMessage="El usuario es requerido"></h:inputText>
 
-                <h:outputLabel value="Contrasena: "></h:outputLabel>
-                <h:inputSecret></h:inputSecret>
+            <h:outputLabel value="Contrasena: "></h:outputLabel>
+            <h:inputSecret id="txtPassword" value="#{loginController.password}" required="true" requiredMessage="La contrasena es requerida" ></h:inputSecret>
 
-                <h:commandButton value="entrar"></h:commandButton>
-            </h:panelGrid>
-        </h:form>
+            <h:commandButton value="entrar" action="#{loginController.ingresar}"></h:commandButton>
+        </h:panelGrid>
+    </h:form>
 
-    </h:body>
+</h:body>
 </html>
