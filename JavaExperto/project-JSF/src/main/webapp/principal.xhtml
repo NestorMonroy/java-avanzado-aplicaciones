@@ -8,21 +8,27 @@
 </h:head>
 <h:body>
     Bienvenido a la pantalla principal
-    <h:dataTable id="tblEmpleados">
+    <h:dataTable id="tblEmpleados" var="empleado" value="#{principalController.empleados}">
         <h:column>
             <f:facet name="hader">Nombre</f:facet>
+            <h:outputText value="#{empleado.nombre}"></h:outputText>
         </h:column>
         <h:column>
             <f:facet name="hader">Primer Apellido</f:facet>
+            <h:outputText value="#{empleado.primerApellido}"></h:outputText>
         </h:column>
         <h:column>
             <f:facet name="hader">Segundo Apellido</f:facet>
+            <h:outputText value="#{empleado.segundoApellido}"></h:outputText>
         </h:column>
         <h:column>
             <f:facet name="hader">Puesto</f:facet>
+            <h:outputText value="#{empleado.puesto}"></h:outputText>
         </h:column>
         <h:column>
             <f:facet name="hader">Estatus</f:facet>
+            <h:outputText value="Activo" rendered="#{empleado.estatus}"></h:outputText>
+            <h:outputText value="No Activo" rendered="#{!empleado.estatus}"></h:outputText>
         </h:column>
     </h:dataTable>
 </h:body>
