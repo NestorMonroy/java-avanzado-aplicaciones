@@ -73,7 +73,7 @@ Se debe crear un archivo con extension xhtml.
 El controlador se encargada de comunicar las propiedades y metodos con la pantalla xhtml.
 
 
-
+maven-ar
 
 ### How to link Tomcat server config in Intellij IDEA?
 

@@ -2,14 +2,16 @@ package com.nestor.projectJSF.contollers;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 
 /**
  * @author Nestor Monroy
  */
 
 
-@ManagedBean(name= "loginController") //Generar controladores Si no tiene ManagedBean, maneja en au
+@ManagedBean(name = "loginController") //Generar controladores Si no tiene ManagedBean, maneja en au
 //automático el nombre de clase en minúsculas
 public class LoginController {
 
@@ -33,12 +35,22 @@ public class LoginController {
         this.password = password;
     }
 
-    public void ingresar(){
+    public void ingresar() {
         System.out.println("Usuario: " + usuario);
-        if (usuario.equals("nestor") & password.equals("12345")){
-            FacesContext.getCurrentInstance().addMessage("formLogin:txtUsuario",new FacesMessage(FacesMessage.SEVERITY_INFO,"Usuario Correcto", "" ));
-        }else {
-            FacesContext.getCurrentInstance().addMessage("formLogin:txtUsuario",new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuario/Password Incorrecto", "" ));
+        if (usuario.equals("nestor") & password.equals("12345")) {
+            this.redireccionar("principal.xhtml");
+        } else {
+            FacesContext.getCurrentInstance().addMessage("formLogin:txtUsuario", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario/Password Incorrecto", ""));
+        }
+    }
+
+    private void redireccionar(String pagina){
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        try {
+            ec.redirect(pagina);
+        } catch (IOException e) {
+            FacesContext.getCurrentInstance().addMessage("formLogin:txtUsuario", new FacesMessage(FacesMessage.SEVERITY_FATAL, "La pagina no existe", ""));
+            e.printStackTrace();
         }
     }
 }
