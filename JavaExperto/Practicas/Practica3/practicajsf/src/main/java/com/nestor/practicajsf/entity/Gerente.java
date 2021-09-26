@@ -1,6 +1,5 @@
 package com.nestor.practicajsf.entity;
 
-
 /**
  * @author Nestor Monroy
  */

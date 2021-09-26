@@ -1,6 +1,56 @@
-.colorText {
-    color:brown;
+:root {
+    --main-bg: #065b4a;
+    padding: 0;
+    margin: 0;
+
 }
+
+.rowLogin {
+    background: #FFFFFF;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px;
+}
+
+.login label {
+    margin-right: 1rem;
+}
+
+.login h1 {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.impN {
+    height: 50px;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    box-shadow: -1px 1px 30px -11px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -1px 1px 30px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 1px 30px -11px rgba(0, 0, 0, 0.75);
+}
+
+.bnt1 {
+    height: 50px;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    font-weight: 600;
+    background-color: #065b4a;
+    color: #BBBBBB;
+}
+
+.bnt1:hover {
+    background-color: #065b5a;
+    transition: .5s;
+}
+
+.colorText {
+    color: black;
+}
+
 .headerTable {
     text-align: center;
     background: none repeat scroll 0 0 #E5E5E5;
