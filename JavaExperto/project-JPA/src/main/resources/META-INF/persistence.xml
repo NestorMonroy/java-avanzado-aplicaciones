@@ -8,6 +8,8 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Define las clases que seran mapeadas al configurarse la connexion a la base de datos. -->
         <class>com.nestor.projectjpa.entity.Disquera</class>
+        <class>com.nestor.projectjpa.entity.Genero</class>
+        <class>com.nestor.projectjpa.entity.SubGenero</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
