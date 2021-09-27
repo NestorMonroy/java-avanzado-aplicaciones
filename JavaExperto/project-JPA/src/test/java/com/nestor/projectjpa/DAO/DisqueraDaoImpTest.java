@@ -41,4 +41,10 @@ public class DisqueraDaoImpTest extends TestCase {
 
     public void testConsultarById() {
     }
+
+    public void testTestConsultarById() {
+        Disquera disquera = this.disqueraDao.consultarById(9L);
+
+        System.out.println("La disquera es :" + disquera.getDescripcion());
+    }
 }

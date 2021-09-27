@@ -2,10 +2,7 @@ package com.nestor.projectjpa.DAO;
 
 import com.nestor.projectjpa.entity.Disquera;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -52,6 +49,14 @@ public class DisqueraDaoImp implements DisqueraDao {
 
     @Override
     public Disquera consultarById(Long id) {
-        return null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        em.find(Disquera.class, id);
+
+        Disquera disqueraConsultado = em.find(Disquera.class, id);
+        if (disqueraConsultado == null) {
+            throw new EntityNotFoundException("La disquera con id " + id + " no se encontro");
+        }
+
+        return disqueraConsultado;
     }
 }
