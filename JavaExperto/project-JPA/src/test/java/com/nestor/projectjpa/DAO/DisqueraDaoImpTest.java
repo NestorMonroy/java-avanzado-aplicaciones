@@ -41,8 +41,15 @@ public class DisqueraDaoImpTest extends TestCase {
 
     public void testConsultarById() {
         Disquera disquera = this.disqueraDao.consultarById(9L);
+        assertNotNull(disquera); //Asegurar que no llegue null el objeto
         System.out.println("La disquera es :" + disquera.getDescripcion());
     }
 
 
+    public void testConsultarByDescripcionJPQL() {
+        Disquera disqueraConsultada = this.disqueraDao.consultarByDescripcionJPQL("Disquera Actualizada");
+        assertNotNull(disqueraConsultada); //Asegurar que no llegue null el objeto
+
+        System.out.println("La disquera es  :" + disqueraConsultada);
+    }
 }
