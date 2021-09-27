@@ -25,9 +25,9 @@ public class SubGenero {
     /*
     * Cuando no se especifica en ManyToOne, en automático hace una consulta fetch
     * Por defecto consulta EAGER que obtiene toda la información de las tablas relacionadas
-    *
+    * Con .LAZY Solo realiza la consulta la información de la tabla indicada
     * */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idGenero") //Campo con la relacion Genero
     private Genero genero;
 
