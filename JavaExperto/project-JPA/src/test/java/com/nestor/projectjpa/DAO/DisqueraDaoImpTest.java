@@ -4,6 +4,7 @@ import com.nestor.projectjpa.entity.Disquera;
 import junit.framework.TestCase;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class DisqueraDaoImpTest extends TestCase {
     private final DisqueraDao disqueraDao = new DisqueraDaoImp();
@@ -31,6 +32,11 @@ public class DisqueraDaoImpTest extends TestCase {
     }
 
     public void testConsulta() {
+        List<Disquera> disquerasConsultadas = this.disqueraDao.consulta();
+        assertTrue(disquerasConsultadas.size() > 0); //Si contiene registros
+        disquerasConsultadas.forEach(disquera -> {
+            System.out.println("Disquera: " + disquera.getDescripcion());
+        });
     }
 
     public void testConsultarById() {

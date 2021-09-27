@@ -73,7 +73,9 @@ public class DisqueraDaoImp implements DisqueraDao {
 
     @Override
     public List<Disquera> consulta() {
-        return null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        TypedQuery<Disquera> queryDisquera = (TypedQuery<Disquera>) em.createQuery("FROM Disquera ORDER BY descripcion");
+        return queryDisquera.getResultList();
     }
 
     @Override
