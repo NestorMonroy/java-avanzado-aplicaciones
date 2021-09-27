@@ -20,7 +20,7 @@ public class DisqueraDaoImp implements DisqueraDao {
         EntityTransaction et = em.getTransaction();
         et.begin();
         try {
-            em.persist(disquera);
+            em.persist(disquera); //persist guarda
             et.commit(); //Asegura los resultados en la base de datos
         } catch (Exception e) {
             if (et != null) {
@@ -34,7 +34,20 @@ public class DisqueraDaoImp implements DisqueraDao {
 
     @Override
     public void actualizar(Disquera disquera) {
-
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.merge(disquera); //merge actualiza
+            et.commit(); //Asegura los resultados en la base de datos
+        } catch (Exception e) {
+            if (et != null) {
+                et.rollback(); //Reinicia **
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
     @Override

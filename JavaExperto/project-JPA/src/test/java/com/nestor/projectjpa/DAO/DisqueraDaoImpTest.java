@@ -31,6 +31,10 @@ public class DisqueraDaoImpTest extends TestCase {
     }
 
     public void testTestActualizar() {
+        Disquera disqueraConsultada = this.disqueraDao.consultarById(9L);
+        disqueraConsultada.setDescripcion("Disquera Actualizada");
+        this.disqueraDao.actualizar(disqueraConsultada);
+
     }
 
     public void testTestEliminiar() {
