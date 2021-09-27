@@ -19,7 +19,7 @@ public class Disquera {
     private String descripcion;
     private LocalDateTime fechaCreacion;
     private LocalDateTime fechaModificacion;
-    private int estatus;
+    private boolean estatus;
 
     /**
      * Gets id disquera.
@@ -98,7 +98,7 @@ public class Disquera {
      *
      * @return the estatus
      */
-    public int getEstatus() {
+    public boolean getEstatus() {
         return estatus;
     }
 
@@ -107,7 +107,7 @@ public class Disquera {
      *
      * @param estatus the estatus
      */
-    public void setEstatus(int estatus) {
+    public void setEstatus(boolean estatus) {
         this.estatus = estatus;
     }
 }
