@@ -9,7 +9,7 @@ public interface DisqueraDao {
 
     void actualizar(Disquera disquera);
 
-    void eliminiar(Disquera disquera);
+    void eliminiar(Long id);
 
     List<Disquera> consulta();
 

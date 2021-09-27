@@ -19,36 +19,24 @@ public class DisqueraDaoImpTest extends TestCase {
     }
 
     public void testActualizar() {
+        Disquera disqueraConsultada = this.disqueraDao.consultarById(9L);
+        disqueraConsultada.setDescripcion("Disquera Actualizada");
+        this.disqueraDao.actualizar(disqueraConsultada);
     }
 
     public void testEliminiar() {
+        Long id = 10L;
+        this.disqueraDao.eliminiar(id);
+
     }
 
     public void testConsulta() {
     }
 
-    public void testTestGuardar() {
-    }
-
-    public void testTestActualizar() {
-        Disquera disqueraConsultada = this.disqueraDao.consultarById(9L);
-        disqueraConsultada.setDescripcion("Disquera Actualizada");
-        this.disqueraDao.actualizar(disqueraConsultada);
-
-    }
-
-    public void testTestEliminiar() {
-    }
-
-    public void testTestConsulta() {
-    }
-
     public void testConsultarById() {
-    }
-
-    public void testTestConsultarById() {
         Disquera disquera = this.disqueraDao.consultarById(9L);
-
         System.out.println("La disquera es :" + disquera.getDescripcion());
     }
+
+
 }

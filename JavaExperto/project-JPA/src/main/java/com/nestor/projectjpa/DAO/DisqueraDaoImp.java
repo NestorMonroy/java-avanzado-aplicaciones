@@ -51,7 +51,23 @@ public class DisqueraDaoImp implements DisqueraDao {
     }
 
     @Override
-    public void eliminiar(Disquera disquera) {
+    public void eliminiar(Long id) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        Disquera disqueraConsultada = em.find(Disquera.class, id);
+
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.remove(disqueraConsultada); //remove elimina
+            et.commit(); //Asegura los resultados en la base de datos
+        } catch (Exception e) {
+            if (et != null) {
+                et.rollback(); //Reinicia **
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
 
     }
 
