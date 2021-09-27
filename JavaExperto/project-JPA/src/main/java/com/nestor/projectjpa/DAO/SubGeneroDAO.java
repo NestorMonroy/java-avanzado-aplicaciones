@@ -32,7 +32,7 @@ public interface SubGeneroDAO {
      * Método que permite consultar la lista de subgéneros.
      * @return {@link List} lista de subgéneros consultados.
      */
-    List<SubGenero> consulta();
+    List<SubGenero> consultar();
 
     /**
      * Método que permite consultar un SubGenero a partir de su identificador.

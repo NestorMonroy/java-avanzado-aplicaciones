@@ -22,7 +22,12 @@ public class SubGenero {
     private String descripcion;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    /*
+    * Cuando no se especifica en ManyToOne, en automático hace una consulta fetch
+    * Por defecto consulta EAGER que obtiene toda la información de las tablas relacionadas
+    *
+    * */
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idGenero") //Campo con la relacion Genero
     private Genero genero;
 
