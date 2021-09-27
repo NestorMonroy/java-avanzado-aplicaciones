@@ -4,7 +4,7 @@ import com.nestor.projectjpa.entity.Disquera;
 
 import java.util.List;
 
-public interface DisqueraDao {
+public interface DisqueraDAO {
     void guardar(Disquera disquera);
 
     void actualizar(Disquera disquera);
@@ -23,5 +23,11 @@ public interface DisqueraDao {
      */
     Disquera consultarByDescripcionJPQL(String descripcion);
 
+    /**
+     * Método que permite consultar con SQL Nativo la disquera a partir de una descripción.
+     * @param descripcion {@link String} descripción de la disquera.
+     * @return {@link Disquera} la disquera consultada.
+     */
+    Disquera consultarByDescripcionNative(String descripcion);
     
 }

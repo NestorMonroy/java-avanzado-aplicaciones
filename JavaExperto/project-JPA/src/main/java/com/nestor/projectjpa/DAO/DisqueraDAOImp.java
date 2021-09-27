@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * The type Disquera dao imp.
  */
-public class DisqueraDaoImp implements DisqueraDao {
+public class DisqueraDAOImp implements DisqueraDAO {
     // EntityManagerFactory: Permite indicar como se llama la unidad de persistencia del archivo xml mapeo
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory("persistenceNestor");
 
@@ -90,6 +90,8 @@ public class DisqueraDaoImp implements DisqueraDao {
         return disqueraConsultado;
     }
 
+
+    //Consultas sencillas * pone lento el sistema
     @Override
     public Disquera consultarByDescripcionJPQL(String descripcion) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
@@ -98,7 +100,19 @@ public class DisqueraDaoImp implements DisqueraDao {
         //queryDisquera.setParameter(1, descripción);
         queryDisquera.setParameter("desc", descripcion);
         return queryDisquera.getSingleResult();
+    }
 
+
+    @Override
+    public Disquera consultarByDescripcionNative(String descripcion) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        //TypedQuery<Disquera> queryDisquera = (TypedQuery<Disquera>) em.createNativeQuery("SELECT * FROM disquera where descripcion = :desc", Disquera.class);
+        TypedQuery<Disquera> queryDisquera = (TypedQuery<Disquera>) em.createNativeQuery("SELECT * FROM disquera WHERE descripcion =:desc", Disquera.class);
+
+        queryDisquera.setParameter("desc", descripcion);
+
+        return queryDisquera.getSingleResult();
 
     }
+
 }
