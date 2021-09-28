@@ -62,4 +62,23 @@ public class EmpleadosWS {
 
     }
 
+
+    @POST
+    @Path("guardarEmpleado")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response guardarEmpleado(Empleado empleado) {
+
+        if (empleado == null) {
+            return Response.status(400).entity("No se ingreso información").build();
+        }
+        if (empleado.getNombre() == null || empleado.getNombre().isEmpty()) {
+            return Response.status(400).entity("No se ingreso nombre").build();
+        }
+
+        GenericEntity<Empleado> empleadoGeneric = new GenericEntity<>(empleado, Empleado.class);
+        return Response.ok(empleadoGeneric).build();
+
+    }
+
+
 }
