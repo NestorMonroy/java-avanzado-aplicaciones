@@ -4,22 +4,26 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- :::::: CREANDO BEAN DE DISQUERA DAO -->
 
-    <bean id="propertiesNestor" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+    <!--con context, no es necesario configurar el bean manual, si no por contexto-->
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="com.nestor"></context:component-scan>
+
+    <!-- generar bin en xml -->
+    <!-- 	<bean id="springServiceImpl" class="com.nestor.projectspringweb.services.impl.SpringServiceImpl"></bean> -->
+
+    <bean id="properties"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="locations">
             <list>
-<!--                <value>classpath:config.properties</value>-->
+                <value>classpath:config.properties</value>
             </list>
         </property>
-        <!-- Default values for backwards compatibility -->
-        <property name="properties">
-            <props>
-                <prop key="name">value</prop>
-            </props>
-        </property>
     </bean>
+
 
 </beans>
