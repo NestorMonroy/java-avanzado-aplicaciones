@@ -3,10 +3,7 @@ package com.nestor.projectjpa.DAO;
 import com.nestor.projectjpa.entity.Disquera;
 import com.nestor.projectjpa.entity.SubGenero;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 public class SubGeneroDAOImpl implements SubGeneroDAO {
@@ -23,8 +20,20 @@ public class SubGeneroDAOImpl implements SubGeneroDAO {
 
     @Override
     public void guardar(SubGenero subGenero) {
-
-
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.persist(subGenero);
+            et.commit();
+        } catch (Exception e) {
+            if (et != null) {
+                et.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
     @Override

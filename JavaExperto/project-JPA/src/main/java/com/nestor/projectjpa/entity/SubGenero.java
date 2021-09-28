@@ -1,6 +1,7 @@
 package com.nestor.projectjpa.entity;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -29,6 +30,11 @@ public class SubGenero {
     * */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idGenero") //Campo con la relacion Genero
+    @Cascade(CascadeType.PERSIST)
+    //Con PERSIST si queremos guardar información de las dos tablas
+    //Con MERGE se actualiza
+    //Con REMOVE se elimina
+    //Con ALL si siempre se hace CASCADA EN cualquier topo de transaction
     private Genero genero;
 
     @Column(name = "fechaCreacion")
