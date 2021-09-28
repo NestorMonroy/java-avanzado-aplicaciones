@@ -1,4 +1,4 @@
-package cpm.nestor;
+package com.nestor;
 
 import static org.junit.Assert.assertTrue;
 
