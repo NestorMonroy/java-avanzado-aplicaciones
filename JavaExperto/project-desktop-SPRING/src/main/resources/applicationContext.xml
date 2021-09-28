@@ -6,5 +6,10 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+    <!-- :::::: CREANDO BEAN DE DISQUERA DAO -->
+
+    <bean id="disqueraDAO"
+          class="com.nestor.DAO.impl.DisqueraDAOImpl">
+    </bean>
 
 </beans>
