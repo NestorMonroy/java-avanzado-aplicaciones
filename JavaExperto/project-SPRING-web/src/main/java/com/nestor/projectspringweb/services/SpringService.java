@@ -7,4 +7,6 @@ package com.nestor.projectspringweb.services;
 
 public interface SpringService {
     String mostrarNombreEmpresa();
+
+    String mostrarNombreEmpleado();
 }

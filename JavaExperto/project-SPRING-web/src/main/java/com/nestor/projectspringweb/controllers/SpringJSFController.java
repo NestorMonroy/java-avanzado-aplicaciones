@@ -2,7 +2,6 @@ package com.nestor.projectspringweb.controllers;
 
 
 import com.nestor.projectspringweb.services.SpringService;
-import com.nestor.projectspringweb.services.imlp.SpringServiceDAOImpl;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -23,8 +22,9 @@ public class SpringJSFController {
     //SpringService springService = new SpringServiceDAOImpl();
 
     private String nombreEmpresa;
+    private String nombreEmpleado;
 
-    @ManagedProperty("#{springServiceDAOImpl}")
+    @ManagedProperty("#{springServiceImpl}")
     //JSF, Cuando se utiliza con Spring se puede inyectar el objeto de spring
     private SpringService springServiceImpl;
 
@@ -33,6 +33,10 @@ public class SpringJSFController {
         String nombre = this.nombreEmpresa = this.springServiceImpl.mostrarNombreEmpresa();
         System.out.println(nombre);
         this.nombreEmpresa = nombre;
+
+        String nombreEmpleado = this.springServiceImpl.mostrarNombreEmpleado();
+        System.out.println("El nombre empleado es : " + nombreEmpleado);
+        this.nombreEmpleado = nombreEmpleado;
     }
 
     public SpringService getSpringServiceImpl() {
@@ -49,5 +53,13 @@ public class SpringJSFController {
 
     public void setNombreEmpresa(String nombreEmpresa) {
         this.nombreEmpresa = nombreEmpresa;
+    }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
     }
 }
