@@ -12,4 +12,18 @@
           class="com.nestor.DAO.impl.DisqueraDAOImpl">
     </bean>
 
+    <bean id="propertiesNestor" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:config.properties</value>
+            </list>
+        </property>
+        <!-- Default values for backwards compatibility -->
+        <property name="properties">
+            <props>
+                <prop key="name">value</prop>
+            </props>
+        </property>
+    </bean>
+
 </beans>
