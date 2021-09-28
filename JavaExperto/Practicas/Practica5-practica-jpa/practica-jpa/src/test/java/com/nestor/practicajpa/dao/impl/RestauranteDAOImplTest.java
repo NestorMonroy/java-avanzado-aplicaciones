@@ -16,4 +16,10 @@ public class RestauranteDAOImplTest extends TestCase {
             System.out.println("El restaurante es :" + restaurante.getNombre());
         });
     }
+
+    public void testConsutarById() {
+        Restaurante restaurante = this.restauranteDAO.consutarById(10L);
+        assertNotNull(restaurante);
+        System.out.println("El restaurante es :" + restaurante.getNombre());
+    }
 }

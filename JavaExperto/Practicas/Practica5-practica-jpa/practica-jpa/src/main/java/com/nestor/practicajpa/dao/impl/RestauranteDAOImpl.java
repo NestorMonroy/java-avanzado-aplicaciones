@@ -3,10 +3,7 @@ package com.nestor.practicajpa.dao.impl;
 import com.nestor.practicajpa.dao.RestauranteDAO;
 import com.nestor.practicajpa.entity.Restaurante;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -25,7 +22,13 @@ public class RestauranteDAOImpl implements RestauranteDAO {
 
     @Override
     public Restaurante consutarById(Long id) {
-        return null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        //em.find(Restaurante.class, id);
+        Restaurante restauranteConsultado = em.find(Restaurante.class, id);
+        if (restauranteConsultado == null) {
+            throw new EntityNotFoundException("El restaurante con " + id + "no se encontro.");
+        }
+        return restauranteConsultado;
     }
 
     @Override
