@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.devpredator.practicajpa.dao;
+package com.nestor.practicajpa.dao;
 
 /**
  * @author 4PF28LA_2004
