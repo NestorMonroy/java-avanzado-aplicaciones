@@ -26,8 +26,17 @@ public class RestauranteDAOImplTest extends TestCase {
     }
 
     public void testActualizar() {
-        Restaurante restaurante = new Restaurante();
 
+        Restaurante restauranteConsultado = this.restauranteDAO.consutarById(10L);
+        restauranteConsultado.setNombre("Restaurante Actualizado");
+        restauranteConsultado.setFechaModificacion(LocalDateTime.now());
+
+        this.restauranteDAO.actualizar(restauranteConsultado);
+    }
+
+    public void testGuardar() {
+
+        Restaurante restaurante = new Restaurante();
         restaurante.setNombre("Otro Nombre");
         restaurante.setSlogan("Otro Slogan");
         restaurante.setFechaCreacion(LocalDateTime.now());
@@ -39,5 +48,10 @@ public class RestauranteDAOImplTest extends TestCase {
         restaurante.setTipoRestaurante(tipoRestaurante);
 
         this.restauranteDAO.guardar(restaurante);
+    }
+
+
+    public void testEliminar() {
+        this.restauranteDAO.eliminar(14L);
     }
 }

@@ -50,12 +50,38 @@ public class RestauranteDAOImpl implements RestauranteDAO {
 
     @Override
     public void actualizar(Restaurante restaurante) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.merge(restaurante);
+            et.commit();
+        } catch (Exception e) {
+            if (e != null) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
 
     }
 
     @Override
     public void eliminar(Long id) {
-
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        Restaurante restauranteConsultado = em.find(Restaurante.class, id);
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.remove(restauranteConsultado);
+            et.commit();
+        } catch (Exception e) {
+            if (e != null) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
     }
 
 
