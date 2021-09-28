@@ -22,7 +22,7 @@ public class SubGeneroDAOImplTest extends TestCase {
     }
 
     public void testGuardar() {
-
+        
         SubGenero subGenero = new SubGenero();
         subGenero.setDescripcion("Hard Core");
         subGenero.setFechaCreacion(LocalDateTime.now());

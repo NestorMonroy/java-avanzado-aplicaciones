@@ -33,7 +33,19 @@ public class RestauranteDAOImpl implements RestauranteDAO {
 
     @Override
     public void guardar(Restaurante restaurante) {
-
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.persist(restaurante);
+            et.commit();
+        } catch (Exception e) {
+            if (e != null) {
+                et.rollback();
+            }
+        } finally {
+            em.close();
+        }
     }
 
     @Override
