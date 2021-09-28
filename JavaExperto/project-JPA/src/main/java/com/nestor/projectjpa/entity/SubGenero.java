@@ -28,9 +28,9 @@ public class SubGenero {
     * Por defecto consulta EAGER que obtiene toda la información de las tablas relacionadas
     * Con .LAZY Solo realiza la consulta la información de la tabla indicada
     * */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idGenero") //Campo con la relacion Genero
-    @Cascade(CascadeType.PERSIST)
+    @Cascade(CascadeType.REMOVE)
     //Con PERSIST si queremos guardar información de las dos tablas
     //Con MERGE se actualiza
     //Con REMOVE se elimina

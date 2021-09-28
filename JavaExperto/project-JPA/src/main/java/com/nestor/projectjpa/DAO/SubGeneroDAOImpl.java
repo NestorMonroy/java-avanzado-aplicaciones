@@ -38,17 +38,46 @@ public class SubGeneroDAOImpl implements SubGeneroDAO {
 
     @Override
     public void actualizar(SubGenero subGenero) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        try {
+            em.merge(subGenero);
+            et.commit();
+        } catch (Exception e) {
+            if (et != null) {
+                et.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
 
     }
 
     @Override
     public void eliminiar(Long id) {
-
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        SubGenero subGeneroConsultado = em.find(SubGenero.class, id);
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            em.remove(subGeneroConsultado);
+            et.commit();
+        } catch (Exception e) {
+            if (et != null) {
+                et.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
 
     @Override
     public SubGenero consultarById(Long id) {
-        return null;
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        return em.find(SubGenero.class, id);
     }
 }

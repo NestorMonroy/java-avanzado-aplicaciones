@@ -1,6 +1,5 @@
 package com.nestor.projectjpa.DAO;
 
-import com.nestor.projectjpa.entity.Disquera;
 import com.nestor.projectjpa.entity.Genero;
 import com.nestor.projectjpa.entity.SubGenero;
 import junit.framework.TestCase;
@@ -11,13 +10,14 @@ import java.util.List;
 public class SubGeneroDAOImplTest extends TestCase {
 
     private final SubGeneroDAO subGeneroDAO = new SubGeneroDAOImpl();
+
     public void testConsultar() {
 
         List<SubGenero> subGenerosConsultados = this.subGeneroDAO.consultar();
-        assertTrue(subGenerosConsultados.size() > 0 );
+        assertTrue(subGenerosConsultados.size() > 0);
         subGenerosConsultados.forEach(subGenero -> {
-            System.out.println("subGenero: " +subGenero.getDescripcion());
-            System.out.println("Genero: " +subGenero.getGenero());
+            System.out.println("subGenero: " + subGenero.getDescripcion());
+            System.out.println("Genero: " + subGenero.getGenero());
         });
     }
 
@@ -37,5 +37,16 @@ public class SubGeneroDAOImplTest extends TestCase {
 
         this.subGeneroDAO.guardar(subGenero);
 
+    }
+
+    public void testActualizar() {
+        SubGenero subGeneroConsultado = this.subGeneroDAO.consultarById(7L);
+        subGeneroConsultado.setDescripcion("Trash Metal");
+        subGeneroConsultado.getGenero().setDescripcion("Metal Trash");
+        this.subGeneroDAO.actualizar(subGeneroConsultado);
+    }
+
+    public void testEliminiar() {
+        this.subGeneroDAO.eliminiar(7L);
     }
 }
