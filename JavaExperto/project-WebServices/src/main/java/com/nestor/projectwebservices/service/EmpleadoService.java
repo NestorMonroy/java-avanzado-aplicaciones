@@ -7,13 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmpleadoService {
-    public Empleado consultarEmpleadoById(Long id) {
+    public Empleado consultarEmpleadoById(String numeroEmpleado) {
+        List<Empleado> empleadosConsultados = this.consultarListaEmpleados();
+        for (Empleado empleadoConsultado : empleadosConsultados) {
+            if (empleadoConsultado.getNumeroEmpleado().equals(numeroEmpleado)) {
+                return empleadoConsultado;
+            }
+
+        }
         return null;
     }
 
     /**
      * Metodo que similima la consulta de un empleado
-     * */
+     */
 
     public Empleado consultarEmpleado() {
         Empleado empleado = new Empleado();
