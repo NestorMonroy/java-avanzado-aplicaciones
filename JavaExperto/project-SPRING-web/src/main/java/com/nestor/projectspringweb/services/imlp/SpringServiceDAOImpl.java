@@ -7,4 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SpringServiceDAOImpl implements SpringService {
 
+    @Override
+    public String mostrarNombreEmpresa() {
+        return "Anotaciones con SPRING Y JSF";
+    }
 }
