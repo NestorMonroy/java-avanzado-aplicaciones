@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- :::::: CREANDO BEAN DE DISQUERA DAO -->
+
+    <bean id="propertiesNestor" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+<!--                <value>classpath:config.properties</value>-->
+            </list>
+        </property>
+        <!-- Default values for backwards compatibility -->
+        <property name="properties">
+            <props>
+                <prop key="name">value</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
