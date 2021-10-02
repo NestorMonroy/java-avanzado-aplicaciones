@@ -45,6 +45,20 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>${commons-dbcp2-version}</version>
         </dependency>
+        <!-- Spring con JSF -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
+            <scope>test</scope>
+        </dependency>
         <!-- Anotaciones para las transacciones con JPA Y SPRING-->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
