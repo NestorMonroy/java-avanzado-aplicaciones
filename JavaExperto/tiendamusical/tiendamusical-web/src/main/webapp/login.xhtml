@@ -15,13 +15,13 @@
                 <p:panelGrid id="pnlGridLogin" columns="1" columnClasses="ui-g-12 ui-md-12,ui-g-12 ui-md-12"
                              layout="grid" styleClass="ui-panelgrid-blank ui-fluid" style="background-color: black">
                     <p:outputLabel value="Usuario: " styleClass="colorText" for="txtUsuario" style="float: left"/>
-                    <p:inputText id="txtUsuario" value="Usuario" required="true"
+                    <p:inputText id="txtUsuario" value="#{loginController.usuario}" required="true"
                                  requiredMessage="El usuario es requerido"/>
                     <p:outputLabel value="Contraseña: " styleClass="colorText" for="txtPassword" style="float: left"/>
-                    <p:password id="txtPassword" value="password" required="true"
+                    <p:password id="txtPassword" value="#{loginController.password}" required="true"
                                 requiredMessage="La contraseña es requerida"/>
                     <p:outputLabel/>
-                    <p:commandButton value="Entrar" update="pnlGridLogin, growl"/>
+                    <p:commandButton action="#{loginController.ingresar}" value="Entrar" update="pnlGridLogin, growl"/>
                 </p:panelGrid>
             </p:panel>
         </h:form>
