@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "persona")
-public class Persona {
+public class Persona extends Common{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPersona")

@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tipoidentificacion")
-public class TipoIdentificacion {
+public class TipoIdentificacion extends Common{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idTipoIdentificacion")
