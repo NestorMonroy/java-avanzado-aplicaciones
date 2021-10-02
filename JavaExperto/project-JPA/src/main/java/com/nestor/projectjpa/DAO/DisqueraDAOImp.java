@@ -16,7 +16,7 @@ public class DisqueraDAOImp implements DisqueraDAO {
     @Override
     public void guardar(Disquera disquera) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-        EntityTransaction et = em.getTransaction();
+        EntityTransaction et = em.  ();
         et.begin();
         try {
             em.persist(disquera); //persist guarda
