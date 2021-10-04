@@ -2,6 +2,7 @@ package com.nestor.tiendamusicalweb.controllers;
 
 import com.nestor.tiendamusicalentities.entities.Persona;
 import com.nestor.tiendamusicalservices.service.LoginService;
+import com.nestor.tiendamusicalweb.session.SessionBean;
 import com.nestor.tiendamusicalweb.utils.CommonUtils;
 
 import javax.annotation.PostConstruct;
@@ -26,6 +27,11 @@ public class LoginController {
      */
     @ManagedProperty("#{loginServiceImpl}")
     private LoginService loginServiceImpl;
+    /**
+     * Propiedad de la logica de negocio inyectada con JSF y Spring.
+     */
+    @ManagedProperty("#{sessionBean}")
+    private SessionBean sessionBean;
 
     @PostConstruct
     public void init() {
@@ -36,6 +42,7 @@ public class LoginController {
         Persona personaConsultada = this.loginServiceImpl.consultarUsuarioLogin(this.usuario, this.password);
         if (personaConsultada != null) {
             try {
+                this.sessionBean.setPersona(personaConsultada);
                 CommonUtils.redireccionar("/pages/commons/dashboard.xhtml");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -69,5 +76,13 @@ public class LoginController {
 
     public void setLoginServiceImpl(LoginService loginServiceImpl) {
         this.loginServiceImpl = loginServiceImpl;
+    }
+
+    public SessionBean getSessionBean() {
+        return sessionBean;
+    }
+
+    public void setSessionBean(SessionBean sessionBean) {
+        this.sessionBean = sessionBean;
     }
 }
