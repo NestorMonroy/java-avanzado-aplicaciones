@@ -9,8 +9,10 @@
             <div class="box" style="background-color: black">
                 <div class="ui-inputgroup" style="display: block; text-align: center">
                     <p:inputText id="txtBuscador" style="width: 90%; margin-bottom: 20px"
+                                 value="#{homeController.filtro}"
                                  placeholder="Artista, album, etc...">
-
+                        <p:ajax event="keyup" listener="#{homeController.consultarAlbumsArtistasPorFiltro}"
+                                update="pnlResultados"/>
                     </p:inputText>
                 </div>
 

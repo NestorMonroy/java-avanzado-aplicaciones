@@ -54,3 +54,15 @@ SELECT * FROM tienda_musical.persona;
 
 
 
+
+
+SELECT a.*, ar.* 
+FROM album a 
+INNER JOIN artista ar ON a.idArtista = ar.idArtista
+INNER JOIN subgenero sg ON ar.idSubGenero = sg.idSubGenero
+INNER JOIN genero g ON sg.idGenero = g.idGenero
+WHERE ar.nombre LIKE '%Meta%'
+OR g.descripcion LIKE '%Meta%'
+OR sg.descripcion LIKE '%Meta%'
+OR ar.nombre LIKE '%Meta%'
+ORDER BY ar.nombre 

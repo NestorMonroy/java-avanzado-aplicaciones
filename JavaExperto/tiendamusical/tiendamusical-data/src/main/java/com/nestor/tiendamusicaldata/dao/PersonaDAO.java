@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * Clase DAO/Repository que realiza el CRUD con SpringJPA para la tabla de persona.
  * @author NestorMonroy
  */
-public interface PersonaRepository extends PagingAndSortingRepository<Persona, Long> {
+public interface PersonaDAO extends PagingAndSortingRepository<Persona, Long> {
 
     /**
      * Método que permite consultar el usuario que trata de ingresar a session.
