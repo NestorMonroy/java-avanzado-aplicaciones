@@ -58,6 +58,5 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--  Etiqueta que permite registrar las clases que se encargan de ejecutar las transacciones a la base de datos (DAO) -->
-    <jpa:repositories base-package="com.nestor.tiendamusicaldata.repositories"
-                      entity-manager-factory-ref="emf"/>
+    <jpa:repositories base-package="com.nestor.tiendamusicaldata.dao" entity-manager-factory-ref="emf"/>
 </beans>
