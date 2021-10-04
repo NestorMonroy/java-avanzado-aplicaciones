@@ -9,6 +9,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import java.io.IOException;
 
 /**
  * @author NestorMonroy
@@ -34,7 +35,12 @@ public class LoginController {
     public void ingresar() {
         Persona personaConsultada = this.loginServiceImpl.consultarUsuarioLogin(this.usuario, this.password);
         if (personaConsultada != null) {
-            CommonUtils.mostrarMensaje(FacesMessage.SEVERITY_INFO, "OK", "Bienvenido");
+            try {
+                CommonUtils.redireccionar("/pages/commons/dashboard.xhtml");
+            } catch (IOException e) {
+                e.printStackTrace();
+                CommonUtils.mostrarMensaje(FacesMessage.SEVERITY_FATAL, "ERROR", "No se puede ingresar");
+            }
         } else {
             CommonUtils.mostrarMensaje(FacesMessage.SEVERITY_FATAL, "ERROR", "Algo es incorrecto");
         }
