@@ -17,7 +17,7 @@ public interface PersonaRepository extends PagingAndSortingRepository<Persona, L
      * @param password {@link String} contraseña capturada por la persona.
      * @return {@link Persona} objeto con la persona encontrada.
      */
-    @Query("select p from persona p where p.usario = ?1 AND p.paswword = ?2")
+    @Query("select p from Persona p where p.usuario = ?1 AND p.password = ?2")
     Persona findByUsuarioAndPassword(String usuario,String password);
 
 }
