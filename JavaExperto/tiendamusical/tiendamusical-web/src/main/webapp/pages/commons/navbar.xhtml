@@ -7,7 +7,7 @@
     <p:menubar id="menubar" style="background-color: black">
         <f:facet name="options">
             <p:commandButton id="btnShopping" icon="pi pi-shopping-cart"/>
-            <p:commandButton id="btnCerrarSesion" icon="pi pi-sign-out"/>
+            <p:commandButton id="btnCerrarSesion" icon="pi pi-sign-out" action="#{sessionClosed.cerrarSesion}"/>
         </f:facet>
     </p:menubar>
     <p:sticky target="menubar"/>
