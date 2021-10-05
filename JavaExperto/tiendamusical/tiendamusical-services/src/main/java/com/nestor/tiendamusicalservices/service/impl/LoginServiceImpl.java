@@ -1,6 +1,6 @@
 package com.nestor.tiendamusicalservices.service.impl;
 
-import com.nestor.tiendamusicaldata.dao.PersonaRepository;
+import com.nestor.tiendamusicaldata.dao.PersonaDAO;
 import com.nestor.tiendamusicalentities.entities.Persona;
 import com.nestor.tiendamusicalservices.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    private PersonaRepository personaRepositoryImpl;
+    private PersonaDAO personaDAOImpl;
 
     @Override
     public Persona consultarUsuarioLogin(String usuario, String password) {
-        return this.personaRepositoryImpl.findByUsuarioAndPassword(usuario, password);
+        return this.personaDAOImpl.findByUsuarioAndPassword(usuario, password);
     }
 }
