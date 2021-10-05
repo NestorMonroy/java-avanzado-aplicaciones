@@ -2,6 +2,8 @@ package com.nestor.tiendamusicalweb.controllers;
 
 import com.nestor.tiendamusicalentities.dto.ArtistaAlbumDTO;
 import com.nestor.tiendamusicalservices.service.HomeService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -16,6 +18,12 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 public class HomeController {
+
+    /**
+     * Objeto que permite mostrar los mensajes de LOG en la consola del servidor o en un archivo externo.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(HomeController.class);
+
 
     /**
      * Texto ingresado por el cliente en el buscador.
@@ -36,7 +44,10 @@ public class HomeController {
      */
     @PostConstruct
     public void init() {
-        System.out.println("Inicializando Home");
+        LOGGER.info("INFO");
+        LOGGER.warn("WARN");
+        LOGGER.error("ERROR");
+        LOGGER.fatal("FATAL");
     }
 
     /**
@@ -47,8 +58,9 @@ public class HomeController {
         this.artistasAlbumDTO = this.homeServiceImpl.consultarAlbumsFiltro(this.filtro);
 
         if (this.artistasAlbumDTO != null) {
-            this.artistasAlbumDTO.forEach( artistaAlbumDTO -> {
-                System.out.println("Artista: " + artistaAlbumDTO.getArtista().getNombre());
+            this.artistasAlbumDTO.forEach(artistaAlbumDTO -> {
+                //System.out.println("Artista: " + artistaAlbumDTO.getArtista().getNombre());
+                LOGGER.info("Artista: " + artistaAlbumDTO.getArtista().getNombre());
             });
         }
     }
