@@ -23,4 +23,10 @@ public interface CarritoService {
      * @return {@link Float} total calculado.
      */
     float calcularTotal(Carrito carrito);
+
+    /**
+     * Método que permite eliminar un album del carrito.
+     * @param carritoAlbum {@link CarritoAlbum} objeto con el album del carrito a eliminar.
+     */
+    void eliminarAlbumCarrito(CarritoAlbum carritoAlbum);
 }

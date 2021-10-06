@@ -1,5 +1,6 @@
 package com.nestor.tiendamusicalweb.controllers;
 
+import com.nestor.tiendamusicalentities.entities.CarritoAlbum;
 import com.nestor.tiendamusicalservices.service.CarritoService;
 import com.nestor.tiendamusicalweb.session.SessionBean;
 import org.apache.logging.log4j.LogManager;
@@ -48,6 +49,18 @@ public class CarritoController {
         float total = this.carritoServiceImpl.calcularTotal(this.sessionBean.getPersona().getCarrito());
 
         this.sessionBean.setTotalCompra(total);
+    }
+
+    /**
+     * Método que permite eliminar un album del carrito del usuario.
+     * @param carritoAlbum {@link CarritoAlbum} objeto con el album a eliminar del carrito.
+     */
+    public void eliminarAlbumCarrito(CarritoAlbum carritoAlbum) {
+        LOGGER.info("Eliminando album " + carritoAlbum.getAlbum().getNombre() + " del carrito");
+
+        this.carritoServiceImpl.eliminarAlbumCarrito(carritoAlbum);
+        this.sessionBean.getPersona().getCarrito().getCarritosAlbum().remove(carritoAlbum);
+        this.calcularTotal();
     }
 
     public SessionBean getSessionBean() {

@@ -43,4 +43,9 @@ public class CarritoServiceImpl implements CarritoService {
 
         return total;
     }
+
+    @Override
+    public void eliminarAlbumCarrito(CarritoAlbum carritoAlbum) {
+        this.carritoAlbumDAO.delete(carritoAlbum);
+    }
 }
