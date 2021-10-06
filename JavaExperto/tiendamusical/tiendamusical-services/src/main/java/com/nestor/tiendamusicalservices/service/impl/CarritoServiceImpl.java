@@ -48,4 +48,10 @@ public class CarritoServiceImpl implements CarritoService {
     public void eliminarAlbumCarrito(CarritoAlbum carritoAlbum) {
         this.carritoAlbumDAO.delete(carritoAlbum);
     }
+
+    @Override
+    public float actualizarAlbumCantidad(CarritoAlbum carritoAlbum, Carrito carrito) {
+        this.carritoAlbumDAO.save(carritoAlbum);
+        return this.calcularTotal(carrito);
+    }
 }

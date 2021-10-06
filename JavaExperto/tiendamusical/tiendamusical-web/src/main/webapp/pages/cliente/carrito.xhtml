@@ -40,7 +40,8 @@
                                                     <h:outputText value="Precio: " style="color: white;"/>
                                                     <h:outputText value="#{carritoAlbum.album.valor}"
                                                                   style="color: white;">
-                                                        <f:convertNumber type="currency" currencyCode="MXN" currencySymbol="$"/>
+                                                        <f:convertNumber type="currency" currencyCode="MXN"
+                                                                         currencySymbol="$"/>
                                                     </h:outputText>
 
                                                     <h:outputText value="Disquera: " style="color: white;"/>
@@ -55,6 +56,9 @@
                                                 <f:selectItem itemValue="3" itemLabel="3"/>
                                                 <f:selectItem itemValue="4" itemLabel="4"/>
                                                 <f:selectItem itemValue="5" itemLabel="5"/>
+                                                <p:ajax event="change"
+                                                        listener="#{carritoController.actualizarCantidadCarrito(carritoAlbum)}"
+                                                        update="formCarrito:pnlTotalCompra, formCarrito:dataViewDetalleCarrito"/>
 
                                             </p:selectOneMenu>
 
@@ -85,7 +89,7 @@
                                     <p:outputLabel/>
                                     <p:outputLabel value="Total: " style="color: white"/>
                                     <p:outputLabel value="#{carritoController.sessionBean.totalCompra}"
-                                                    style="color: white">
+                                                   style="color: white">
                                         <f:convertNumber type="currency" currencyCode="MXN"
                                                          currencySymbol="$"/>
                                     </p:outputLabel>
