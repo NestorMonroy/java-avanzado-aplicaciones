@@ -10,7 +10,7 @@
     <script>
         paypal.Buttons({
             createOrder: function (data, actions) {
-                return fetch('', {
+                return fetch('../../PayPalServlet', {
                     method: 'post',
                     headers: {
                         'content-type': 'application/json'

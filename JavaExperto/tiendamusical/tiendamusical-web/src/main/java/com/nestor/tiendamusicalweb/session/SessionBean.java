@@ -2,6 +2,8 @@ package com.nestor.tiendamusicalweb.session;
 
 import com.nestor.tiendamusicalentities.dto.ArtistaAlbumDTO;
 import com.nestor.tiendamusicalentities.entities.Persona;
+import com.paypal.http.HttpResponse;
+import com.paypal.orders.Order;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -28,6 +30,11 @@ public class SessionBean {
      * Total generado de la compra en session.
      */
     private float totalCompra;
+
+    /**
+     * Orden generada por paypal.
+     */
+    private HttpResponse<Order> order;
 
     @PostConstruct
     public void init(){
@@ -56,5 +63,13 @@ public class SessionBean {
 
     public void setTotalCompra(float totalCompra) {
         this.totalCompra = totalCompra;
+    }
+
+    public void setOrder(HttpResponse<Order> response) {
+        this.order = response;
+    }
+
+    public HttpResponse<Order> getOrder() {
+        return order;
     }
 }
