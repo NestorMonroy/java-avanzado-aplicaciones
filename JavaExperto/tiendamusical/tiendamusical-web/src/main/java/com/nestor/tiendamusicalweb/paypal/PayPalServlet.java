@@ -1,5 +1,9 @@
 package com.nestor.tiendamusicalweb.paypal;
 
+import com.google.gson.Gson;
+import com.nestor.tiendamusicalweb.session.SessionBean;
+import com.paypal.http.HttpResponse;
+import com.paypal.orders.Order;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -44,6 +49,14 @@ public class PayPalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOGGER.info("Generando Orden de PayPal...");
 
+        PayPalCreateOrder payPalCreateOrder = new PayPalCreateOrder();
+        HttpSession session = request.getSession(false);
 
+        if (session.getAttribute("sessionBean") != null) {
+            SessionBean sessionBean = (SessionBean) session.getAttribute("sessionBean");
+            HttpResponse<Order> order = payPalCreateOrder.crearOrden(sessionBean);
+            Gson gson = new Gson();
+            response.getWriter().write(gson.toJson(order));
+        }
     }
 }

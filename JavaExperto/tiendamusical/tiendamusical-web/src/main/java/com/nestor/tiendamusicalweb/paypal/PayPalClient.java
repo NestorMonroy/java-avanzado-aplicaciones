@@ -15,8 +15,8 @@ public class PayPalClient {
      *This sample uses SandboxEnvironment. In production, use LiveEnvironment.
      */
     private PayPalEnvironment environment = new PayPalEnvironment.Sandbox(
-            "AdInxzUUQgvxB5ig4fZvRGPB5qdGiFF3zGxbpGTRY9bMJeo0F1NukBBc-HSDospt9-FosAgHEUSsLypA",
-            "EGg4VEqPb96uVUr0_DJQ2yWX7aQUixxJuJ4Di186mbD0BldQo2bSu7sH0M0WLPA3SOPpdmLIw17JbO1K");
+            "Aff8i288wqQdtvtbod9RAmkLszsmVR-siK0mE4Pi_az1hPG5YPXe2QC9cGYS1UEDXCNkpy4BV2cRAL-u",
+            "EH-z__ZROqNgGnqtSoUr2tAvl3oScwD-6HyJ6D70aw9eJTq7vq3czVdiE4XbKE_OQB--Cwe--lQNajRt");
 
     /**
      *PayPal HTTP client instance with environment that has access

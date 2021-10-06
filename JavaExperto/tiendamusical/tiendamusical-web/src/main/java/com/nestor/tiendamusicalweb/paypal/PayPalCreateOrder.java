@@ -44,9 +44,7 @@ public class PayPalCreateOrder extends PayPalClient {
         ordersCreateRequest.requestBody(this.generarCuerpoOrden(sessionBean));
 
         HttpResponse<Order> response = client().execute(ordersCreateRequest);
-
         sessionBean.setOrder(response);
-
         return response;
     }
 
@@ -108,7 +106,7 @@ public class PayPalCreateOrder extends PayPalClient {
                 .addressLine2("Nombre Colonia")
                 .adminArea1("Nombre Area1")
                 .adminArea2("Nombre Area2")
-                .postalCode("00000")
+                .postalCode("5555")
                 .countryCode("MX"));
 
         //Se aplica un formato a la cantidad del total de compra de los productos.
