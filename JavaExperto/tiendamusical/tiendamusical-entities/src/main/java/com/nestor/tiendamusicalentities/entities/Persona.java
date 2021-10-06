@@ -43,6 +43,10 @@ public class Persona extends Common{
     @JoinColumn(name = "idRol")
     private Rol rol;
 
+    @OneToOne(mappedBy = "persona")
+    private Carrito carrito;
+
+
     public Long getIdPersona() {
         return idPersona;
     }
