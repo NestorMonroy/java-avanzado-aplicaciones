@@ -36,6 +36,11 @@ public class SessionBean {
      */
     private HttpResponse<Order> order;
 
+    /**
+     * Número del paso actual del proceso de compra.
+     */
+    private int paso;
+
     @PostConstruct
     public void init(){
         System.out.println("Creando sesión...");
@@ -71,5 +76,13 @@ public class SessionBean {
 
     public HttpResponse<Order> getOrder() {
         return order;
+    }
+
+    public int getPaso() {
+        return paso;
+    }
+
+    public void setPaso(int paso) {
+        this.paso = paso;
     }
 }
