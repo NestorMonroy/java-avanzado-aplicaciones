@@ -43,7 +43,7 @@
                                             <f:convertNumber type="currency" currencyCode="MXN" currencySymbol="$"/>
                                         </p:outputLabel>
 
-                                        <p:commandButton icon="pi pi-shopping-cart" action="#{detalleController.agregarAlbumCarrito(sessionBean.artistaAlbumDTO)}" />
+                                        <p:commandButton icon="pi pi-shopping-cart" action="#{detalleController.agregarAlbumCarrito(sessionBean.artistaAlbumDTO)}"  update="formDetalle:btnShopping"/>
                                         <p:selectOneMenu id="cboCantidad" value="#{detalleController.cantidadAlbumSeleccionada}">
                                             <f:selectItem itemValue="1" itemLabel="1" noSelectionOption="true"/>
                                             <f:selectItem itemValue="2" itemLabel="2"/>

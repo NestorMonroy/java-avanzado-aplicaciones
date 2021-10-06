@@ -2,11 +2,14 @@ package com.nestor.tiendamusicalweb.controllers;
 
 import com.nestor.tiendamusicalentities.dto.ArtistaAlbumDTO;
 import com.nestor.tiendamusicalentities.entities.CarritoAlbum;
+import com.nestor.tiendamusicalservices.service.CarritoService;
+import com.nestor.tiendamusicalweb.session.SessionBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 /**
@@ -26,6 +29,18 @@ public class DetalleController {
      */
     private int cantidadAlbumSeleccionada;
     /**
+     * Objeto que contiene los métodos de la logica de negocio del carrito.
+     */
+    @ManagedProperty("#{carritoServiceImpl}")
+    private CarritoService carritoServiceImpl;
+
+    /**
+     * Objeto que contiene la información del usuario en sesion.
+     */
+    @ManagedProperty("#{sessionBean}")
+    private SessionBean sessionBean;
+
+    /**
      * Inicializa la pantalla del detalle.
      */
     @PostConstruct
@@ -40,6 +55,9 @@ public class DetalleController {
     public void agregarAlbumCarrito(ArtistaAlbumDTO artistaAlbumDTO) {
         LOGGER.info("Agregando album al carrito de compras..." + ", Cantidad: " + this.cantidadAlbumSeleccionada);
 
+        CarritoAlbum carritosAlbumAgregado = this.carritoServiceImpl.guardarAlbumsCarrito(artistaAlbumDTO, this.sessionBean.getPersona().getCarrito(), cantidadAlbumSeleccionada);
+
+        this.sessionBean.getPersona().getCarrito().getCarritosAlbum().add(carritosAlbumAgregado);
 
     }
 
@@ -49,5 +67,21 @@ public class DetalleController {
 
     public void setCantidadAlbumSeleccionada(int cantidadAlbumSeleccionada) {
         this.cantidadAlbumSeleccionada = cantidadAlbumSeleccionada;
+    }
+
+    public CarritoService getCarritoServiceImpl() {
+        return carritoServiceImpl;
+    }
+
+    public void setCarritoServiceImpl(CarritoService carritoServiceImpl) {
+        this.carritoServiceImpl = carritoServiceImpl;
+    }
+
+    public SessionBean getSessionBean() {
+        return sessionBean;
+    }
+
+    public void setSessionBean(SessionBean sessionBean) {
+        this.sessionBean = sessionBean;
     }
 }
