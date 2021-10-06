@@ -46,6 +46,7 @@ public class Persona extends Common{
     @OneToOne(mappedBy = "persona")
     private Carrito carrito;
 
+    
 
     public Long getIdPersona() {
         return idPersona;
@@ -125,5 +126,13 @@ public class Persona extends Common{
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Carrito getCarrito() {
+        return carrito;
+    }
+
+    public void setCarrito(Carrito carrito) {
+        this.carrito = carrito;
     }
 }

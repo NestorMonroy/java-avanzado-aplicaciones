@@ -45,4 +45,5 @@ public class Carrito {
     public void setCarritosAlbum(List<CarritoAlbum> carritosAlbum) {
         this.carritosAlbum = carritosAlbum;
     }
+
 }
