@@ -1,4 +1,8 @@
 ##############################
+## Archivos de configuracion
+##############################
+/src/main/resources/config/application-properties.properties
+##############################
 ## Java
 ##############################
 .mtj.tmp/
