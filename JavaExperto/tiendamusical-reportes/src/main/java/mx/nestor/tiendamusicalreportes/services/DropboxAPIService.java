@@ -33,10 +33,10 @@ public interface DropboxAPIService {
      * @param cliente {@link String} nombre completo del cliente que realizo la compra.
      * @param jasperPrint {@link JasperPrint} archivo de jasper generado como PDF.
      * @throws IOException {@link IOException} excepción generada en caso de error al crear el archivo pdf en la carpeta temporal.
-     * @throws JRException {@link JRException} excepción generada en caso de error al exportar la informacion del reporte al archivo temporal.
+     * @throws JRException {@link JRException} excepción generada en caso de error al exportar la información del reporte al archivo temporal.
      * @throws DbxException {@link DbxException} excepción generada en caso de error al realizar el proceso de carga
-     * @throws UploadErrorException {@link UploadErrorException} excepción generada en caso de error en el momento de que se esta subiendo el archivo pdf a Dropbox
+     * @throws UploadErrorException {@link UploadErrorException} excepción generada en caso de error en el momento de que se está subiendo el archivo pdf a Dropbox
      */
 
-    void cargarReporteToDropbox(DbxClientV2 dbxClientV2, String orderID, JasperPrint jasperPrint);
+    void cargarReporteToDropbox(DbxClientV2 dbxClientV2, String orderID, String cliente, JasperPrint jasperPrint) throws IOException, JRException, DbxException;
 }
