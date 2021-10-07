@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  * @author NestorMonroy.
- * CLase que representa entidades de artistas de bandas o singles.
+ * Clase que representa entidades de artistas de bandas o singles.
  */
 @Entity
 @Table(name = "artista")

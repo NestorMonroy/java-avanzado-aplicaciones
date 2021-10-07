@@ -9,8 +9,6 @@
 *.nar
 hs_err_pid*
 
-/tiendamusical-data/src/main/resources/config/application-properties.properties
-
 ##############################
 ## Maven
 ##############################

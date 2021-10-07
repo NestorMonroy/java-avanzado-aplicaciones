@@ -3,11 +3,14 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
-    <h:outputStylesheet name="css/primeflex.min.css"/>
+
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+    <h:outputStylesheet name="css/primeflex.min.css" />
+
     <style type="text/css">
-        .box, .sample-layout > div {
+        .box, .sample-layout>div {
             background-color: #cce4f7;
             padding-top: 1em;
             padding-bottom: 1em;
@@ -22,7 +25,7 @@
             margin: 0;
         }
 
-        .sample-layout > div {
+        .sample-layout>div {
             border: 1px solid #ffffff;
         }
 
@@ -68,7 +71,7 @@
             border-bottom: 1px solid #A8A8A8;
             padding: 25px 10px;
             /* with the exported variables from Nova and Luna Themes*/
-            border-bottom-color: var(--input-border-color, #A8A8A8);
+            border-bottom-color: var(- -input-border-color, #A8A8A8);
         }
 
         .logo {
@@ -122,6 +125,53 @@
             border: 1px solid #007ad9;
             background-color: #007ad9;
             color: #fff;
+        }
+
+        body .ui-panelgrid .ui-panelgrid-cell {
+            border: 1px solid #c8c8c8;
+            background-color: black;
+            color: #333;
+            padding: .571em 1em;
+        }
+
+        body .ui-selectonemenu-panel .ui-selectonemenu-items .ui-selectonemenu-item.ui-state-highlight {
+            background-color: #012e52;
+            color:#fff
+        }
+        body .ui-panelmenu .ui-panelmenu-header.ui-state-active {
+            border:1px solid #012e52;
+            background-color:#012e52;
+            color:#fff
+        }
+        body .ui-panelmenu .ui-panelmenu-header.ui-state-active:hover,
+        body .ui-panelmenu .ui-panelmenu-header.ui-state-active.ui-menuitem-outline {
+            outline:0 none;
+            border:1px solid #007ad9;
+            background-color:#007ad9;
+            color:#fff;
+        }
+
+        body .ui-panelgrid .ui-panelgrid-cell {
+            border: 1px solid #c8c8c8;
+            background-color: black;
+            color: #333;
+            padding: .571em 1em;
+        }
+
+        body .ui-panelgrid .ui-panelgrid-content {
+            border: none;
+            background-color: black;
+            color: #333;
+        }
+
+        .ui-dialog {
+            top: 0% !important;
+        }
+
+        body .ui-steps .ui-steps-item.ui-state-highlight .ui-steps-number {
+            background:#012e52;
+            color:#fff;
+            border: none;
         }
     </style>
 

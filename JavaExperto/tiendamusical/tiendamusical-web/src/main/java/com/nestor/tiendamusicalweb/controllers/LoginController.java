@@ -1,9 +1,12 @@
 package com.nestor.tiendamusicalweb.controllers;
 
+import com.nestor.tiendamusicalentities.entities.CarritoAlbum;
 import com.nestor.tiendamusicalentities.entities.Persona;
 import com.nestor.tiendamusicalservices.service.LoginService;
 import com.nestor.tiendamusicalweb.session.SessionBean;
 import com.nestor.tiendamusicalweb.utils.CommonUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -11,6 +14,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author NestorMonroy
@@ -33,6 +38,11 @@ public class LoginController {
     @ManagedProperty("#{sessionBean}")
     private SessionBean sessionBean;
 
+    /**
+     * Objeto que permite mostrar los mensajes de LOG en la consola del servidor o en un archivo externo.
+     */
+    private static final Logger LOGGER = LogManager.getLogger(LoginController.class);
+
     @PostConstruct
     public void init() {
         System.out.println("Inicializando login...");
@@ -42,6 +52,12 @@ public class LoginController {
         Persona personaConsultada = this.loginServiceImpl.consultarUsuarioLogin(this.usuario, this.password);
         if (personaConsultada != null) {
             try {
+                List<CarritoAlbum> carritoAlbumFiltrados =  personaConsultada.getCarrito().getCarritosAlbum().stream().filter(ca ->
+                    ca.getEstatus().equals("PENDIENTE")).collect(Collectors.toList());
+
+                personaConsultada.getCarrito().setCarritosAlbum(carritoAlbumFiltrados);
+
+                LOGGER.info("Albums de carrito filtrados ...");
                 this.sessionBean.setPersona(personaConsultada);
                 CommonUtils.redireccionar("/pages/commons/dashboard.xhtml");
             } catch (IOException e) {
